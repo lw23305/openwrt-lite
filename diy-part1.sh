@@ -19,4 +19,5 @@
 git clone --depth=1 https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
+git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 
