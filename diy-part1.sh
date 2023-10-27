@@ -19,5 +19,18 @@
 git clone --depth=1 https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+# git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+
+#移除不用软件包
+rm -rf feeds/luci/applications/luci-app-accesscontrol
+rm -rf feeds/luci/applications/luci-app-adbyby-plus
+rm -rf feeds/packages/net/luci-app-vlmcsd 
+rm -rf feeds/packages/net/luci-app-xlnetacc 
+rm -rf feeds/luci/applications/luci-app-nlbwmon
+rm -rf feeds/luci/applications/luci-app-unblockmusic
+rm -rf feeds/luci/applications/luci-app-upnp
+rm -rf feeds/luci/applications/luci-app-zerotier
+rm -rf feeds/luci/applications/luci-app-ddns
+rm -rf feeds/luci/applications/luci-app-wol
+rm -rf feeds/luci/applications/luci-app-vsftpd
 
