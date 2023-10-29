@@ -19,8 +19,10 @@
 git clone --depth=1 https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-# git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
-
+git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
+svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
+git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 #移除不用软件包
 rm -rf feeds/luci/applications/luci-app-accesscontrol
 rm -rf feeds/luci/applications/luci-app-adbyby-plus
