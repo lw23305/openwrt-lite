@@ -35,4 +35,8 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-ddns
 rm -rf feeds/luci/applications/luci-app-wol
 rm -rf feeds/luci/applications/luci-app-vsftpd
-
+# mosdns
+find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+find ./ | grep Makefile | grep mosdns | xargs rm -f
+git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/geodata
