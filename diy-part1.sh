@@ -25,7 +25,7 @@ rm -rf feeds/luci/applications/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-ddns
 rm -rf feeds/luci/applications/luci-app-wol
 rm -rf feeds/luci/applications/luci-app-vsftpd
-rm -rf feeds/luci/applications/luci-app-mosdns
+
 
 # Add a feed source
 git clone --depth=1 https://github.com/fw876/helloworld package/luci-app-ssr-plus
