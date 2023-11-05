@@ -45,6 +45,7 @@ svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/mosdns
 # git clone https://github.com/sbwml/v2ray-geodata package/geodata
 
 
-
+ ./scripts/feeds update -a
+ ./scripts/feeds install -a
 
 
