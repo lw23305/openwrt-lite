@@ -35,10 +35,10 @@ svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall
 git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
 git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 # mosdns
-find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
-find ./ | grep Makefile | grep mosdns | xargs rm -f
-git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/geodata
+# find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+# find ./ | grep Makefile | grep mosdns | xargs rm -f
+# git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
+# git clone https://github.com/sbwml/v2ray-geodata package/geodata
 
 
 
