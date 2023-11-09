@@ -14,3 +14,42 @@
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 sed -i 's/192.168.1.1/192.168.3.2/g' package/base-files/files/bin/config_generate
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
+
+#移除不用软件包
+# rm -rf feeds/luci/applications/luci-app-accesscontrol
+# rm -rf feeds/luci/applications/luci-app-adbyby-plus
+# rm -rf feeds/packages/net/luci-app-vlmcsd 
+# rm -rf feeds/packages/net/luci-app-xlnetacc 
+# rm -rf feeds/luci/applications/luci-app-nlbwmon
+# rm -rf feeds/luci/applications/luci-app-unblockmusic
+# rm -rf feeds/luci/applications/luci-app-upnp
+# rm -rf feeds/luci/applications/luci-app-zerotier
+# rm -rf feeds/luci/applications/luci-app-ddns
+# rm -rf feeds/luci/applications/luci-app-wol
+# rm -rf feeds/luci/applications/luci-app-vsftpd
+# rm -rf feeds/luci/applications/luci-app-mosdns
+
+# Remove the default apps 移除默认编译app，不是移除app
+sed -i 's/luci-app-adbyby-plus //g' target/linux/x86/Makefile
+sed -i 's/luci-app-accesscontrol //g' target/linux/x86/Makefile
+sed -i 's/luci-app-unblockmusic //g' target/linux/x86/Makefile
+sed -i 's/luci-app-zerotier //g' target/linux/x86/Makefile
+sed -i 's/luci-app-ddns //g' target/linux/x86/Makefile
+sed -i 's/luci-app-xlnetacc //g' target/linux/x86/Makefile
+sed -i 's/luci-app-ipsec-vpnd //g' target/linux/x86/Makefile
+sed -i 's/luci-app-wol //g' target/linux/x86/Makefile
+sed -i 's/luci-app-vsftpd //g' target/linux/x86/Makefile
+sed -i 's/luci-app-upnp //g' target/linux/x86/Makefile
+sed -i 's/luci-app-nlbwmon //g' target/linux/x86/Makefile
+# Add a feed source
+git clone --depth=1 https://github.com/fw876/helloworld package/luci-app-ssr-plus
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
+# svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
+git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
+./scripts/feeds update -a
+./scripts/feeds install -a
+
+
+
