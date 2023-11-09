@@ -46,18 +46,7 @@ svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall
 # svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
 git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
-
-# MosDNS
-svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/luci-app-mosdns
-svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/mosdns
-# mosdns
-# find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
-# find ./ | grep Makefile | grep mosdns | xargs rm -f
-# git clone https://github.com/sbwml/luci-app-mosdns package/mosdns
-# git clone https://github.com/sbwml/v2ray-geodata package/geodata
-
-
- ./scripts/feeds update -a
- ./scripts/feeds install -a
+./scripts/feeds update -a
+./scripts/feeds install -a
 
 
