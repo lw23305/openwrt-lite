@@ -29,18 +29,7 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz
 # rm -rf feeds/luci/applications/luci-app-vsftpd
 # rm -rf feeds/luci/applications/luci-app-mosdns
 
-# Remove the default apps 移除默认编译app，不是移除app
-sed -i 's/luci-app-adbyby-plus //g' target/linux/x86/Makefile
-sed -i 's/luci-app-accesscontrol //g' target/linux/x86/Makefile
-sed -i 's/luci-app-unblockmusic //g' target/linux/x86/Makefile
-sed -i 's/luci-app-zerotier //g' target/linux/x86/Makefile
-sed -i 's/luci-app-ddns //g' target/linux/x86/Makefile
-sed -i 's/luci-app-xlnetacc //g' target/linux/x86/Makefile
-sed -i 's/luci-app-ipsec-vpnd //g' target/linux/x86/Makefile
-sed -i 's/luci-app-wol //g' target/linux/x86/Makefile
-sed -i 's/luci-app-vsftpd //g' target/linux/x86/Makefile
-sed -i 's/luci-app-upnp //g' target/linux/x86/Makefile
-sed -i 's/luci-app-nlbwmon //g' target/linux/x86/Makefile
+
 # Add a feed source
 git clone --depth=1 https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
