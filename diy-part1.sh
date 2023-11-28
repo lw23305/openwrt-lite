@@ -15,17 +15,9 @@
 # Add a feed source
 # echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 # echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-# 克隆openwrt-passwall仓库
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages.git
-cp -rf openwrt-passwall-packages/chinadns-ng package/chinadns-ng
-cp -rf openwrt-passwall-packages/tcping package/tcping
-cp -rf openwrt-passwall-packages/trojan-go package/trojan-go
-cp -rf openwrt-passwall-packages/trojan-plus package/trojan-plus
-cp -rf openwrt-passwall-packages/ssocks package/ssocks
-cp -rf openwrt-passwall-packages/hysteria package/hysteria
-cp -rf openwrt-passwall-packages/dns2tcp package/dns2tcp
-cp -rf openwrt-passwall-packages/sing-box package/sing-box
-#rm -rf openwrt-passwall-packages
+git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
