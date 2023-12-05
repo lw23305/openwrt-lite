@@ -1,19 +1,17 @@
-#
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# Description: Build OpenWrt using GitHub Actions
-#
+#===============================================
+# Description: Build OpenWrt
+# File name: build-openwrt.yml
+# Lisence: MIT
+# Author: P3TERX
+# https://github.com/P3TERX
+#===============================================
 
 name: Build OpenWrt
 
 env:
   SOURCE_URL: https://github.com/coolsnowwolf/lede
   SOURCE_BRANCH: master
-  CONFIG_FILE: .config
+  CONFIG_FILE: configs/x86_64-mini.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   CLASH_KERNEL: amd64
