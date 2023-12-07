@@ -18,8 +18,6 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-on:
-  workflow_dispatch:
   schedule:
     - cron: 0 19 */15 * *
 env:
