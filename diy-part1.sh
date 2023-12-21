@@ -35,7 +35,8 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 # MosDNS
 svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/luci-app-mosdns
 svn export https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/mosdns
-
+# JD
+git clone --depth=1 https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 # 调整 samba4 到 服务 菜单
 sed -i 's/nas/services/g; s/nas/Services/g' feeds/luci/applications/luci-app-samba4/luasrc/controller/samba4.lua
 sed -i 's/nas/services/g' feeds/luci/applications/luci-app-samba4/luasrc/view/samba4/samba4_status.htm
