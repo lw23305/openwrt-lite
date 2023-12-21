@@ -31,6 +31,11 @@ find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/
 # 移除要替换的包
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-mosdns
+# rm -rf feeds/luci/applications/luci-app-dockerman
+# dockreman
+# rm -rf luci-app-dockerman
+# git clone --depth=1 https://github.com/lisaac/luci-app-dockerman.git
+# cp -rf luci-app-dockerman/applications/luci-app-dockerman package/luci-app-dockerman
 
 # MosDNS
 svn export https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/luci-app-mosdns
