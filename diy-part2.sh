@@ -14,6 +14,8 @@
 
 # Modify default IP
 #sed -i 's/192.168.1.1/10.0.0.2/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.3.2/g' package/base-files/files/bin/config_generate
+sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 sed -i '/firewall.user/d' package/lean/default-settings/files/zzz-default-settings
 sed -i '/REVISION/d' package/lean/default-settings/files/zzz-default-settings
 sed -i '/DESCRIPTION/d' package/lean/default-settings/files/zzz-default-settings
