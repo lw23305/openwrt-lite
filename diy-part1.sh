@@ -23,5 +23,3 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages packa
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 sed -i '/samba4/s/^/#/' package/lean/default-settings/files/zzz-default-settings
 
-./scripts/feeds update -a
-./scripts/feeds install -a
