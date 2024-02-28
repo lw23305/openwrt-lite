@@ -16,10 +16,8 @@
 # Add a feed source
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-#echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
-#echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
-#echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go' >>feeds.conf.default
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
+echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go' >>feeds.conf.default
 sed -i '/samba4/s/^/#/' package/lean/default-settings/files/zzz-default-settings
 
