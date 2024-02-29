@@ -15,9 +15,9 @@
 
 # Add a feed source
 # passwall 科学
-git clone -b luci-smartdns-dev --single-branch https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+# git clone -b luci-smartdns-dev --single-branch https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 # git clone https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall
+# git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall
 # 添加主题
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
