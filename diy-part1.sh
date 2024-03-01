@@ -28,6 +28,8 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/l
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/' feeds/luci/collections/luci/Makefile
 
 # MosDNS
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
 git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 
 # 取消对 samba4 的菜单调整
