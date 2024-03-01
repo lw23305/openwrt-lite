@@ -153,8 +153,8 @@ jobs:
         rm -rf openwrt-x86-64-generic-kernel.bin
         rm -rf openwrt-x86-64-generic.manifest
         rm -rf openwrt-x86-64-generic-squashfs-rootfs.img.gz
-        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "status=success" >> $GITHUB_OUTPUT
+        rm -rf openwrt-x86-64-generic-rootfs.tar.gz
+        rm -rf openwrt-x86-64-generic-squashfs-combined.img.gz
 
     - name: Upload firmware directory
       uses: actions/upload-artifact@main
