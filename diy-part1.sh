@@ -47,30 +47,6 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package
 sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
 sed -i 's/KERNEL_PATCHVER:=6.6/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
 
-# Add a feed source
-sed -i "/helloworld/d" "feeds.conf.default"
-echo "src-git helloworld https://github.com/fw876/helloworld.git;main" >> "feeds.conf.default"
-echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> "feeds.conf.default"
-echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main" >> "feeds.conf.default"
-
-# backup config
-cat>> package/base-files/files/lib/upgrade/keep.d/base-files-essential<<-EOF
-/etc/config/dhcp
-/etc/config/xray
-/etc/config/sing-box
-/etc/config/romupdate
-/etc/config/passwall_show
-/etc/config/passwall_server
-/etc/config/passwall
-/usr/share/v2ray/geosite.dat
-/usr/share/v2ray/geoip.dat
-/usr/share/passwall/rules/
-/usr/share/singbox/
-/usr/share/v2ray/
-/etc/openclash/core/
-EOF
-
-
 # Themes
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/lean/luci-theme-argon
