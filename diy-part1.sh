@@ -18,6 +18,10 @@ git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 
+# 替换curl版本回到8.5.0 - 修复 passwall 百度连通性测试失败
+# rm -rf feeds/packages/net/curl
+# git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
+
 # 最大连接数修改为65535
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
 
