@@ -23,14 +23,6 @@ sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.15/g" target/l
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 # echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
-# 替换curl版本回到8.5.0 - 修复 passwall 百度连通性测试失败
-# rm -rf feeds/packages/net/curl
-# git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
-
-# Add a feed source
-# sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
-# sed -i 's/KERNEL_PATCHVER:=6.6/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
-
 # Themes
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/lean/luci-theme-argon
