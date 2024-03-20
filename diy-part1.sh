@@ -26,8 +26,8 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 
 
 # 科学上网插件
-# rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
-# git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
+git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
