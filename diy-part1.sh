@@ -10,8 +10,9 @@ sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.15/g" target/l
 # 科学上网插件
 # rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 # git clone https://github.com/sbwml/openwrt_helloworld package/helloworld
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang
+pushd feeds/packages/lang
+rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang
+popd
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 # rm -rf feeds/packages/lang/golang
