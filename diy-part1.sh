@@ -19,9 +19,8 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-
 # git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
 
 # Themes
-# git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-# git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-# git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 # MosDNS
 rm -rf feeds/packages/net/mosdns
