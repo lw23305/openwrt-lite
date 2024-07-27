@@ -22,9 +22,20 @@ sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.15/g" target/l
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 科学上网插件
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/deng/luci-app-passwall
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/deng/passwall-packages
+# git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/deng/luci-app-passwall
+# git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/deng/passwall-packages
 # git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+
+# Add luci-app-ssr-plus
+git clone --depth=1 https://github.com/fw876/helloworld
+
+# Add luci-app-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages
+# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
+
+
+
 
 # Themes
 rm -rf feeds/luci/themes/luci-theme-argon
