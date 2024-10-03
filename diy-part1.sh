@@ -32,9 +32,11 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 
 # 科学上网插件
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/deng/luci-app-passwall
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/deng/passwall-packages
+# git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/deng/luci-app-passwall
+# git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/deng/passwall-packages
 # git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 
 # Themes
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
