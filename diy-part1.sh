@@ -15,7 +15,10 @@ sed -i "s/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.15/g" target/linux/x86/Makefil
 sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.15/g" target/linux/x86/Makefile
 
 # 移除要替换的包
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/packages/net/v2ray-geodata
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -27,9 +30,6 @@ function git_sparse_clone() {
   cd .. && rm -rf $repodir
 }
 
-# 添加额外插件
-git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-
 # 科学上网插件
 # git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall package/deng/luci-app-passwall
 # git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/deng/passwall-packages
@@ -37,6 +37,13 @@ git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/lu
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 
+# golang 1.22.x 或最新版本
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
+
+# mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 # Themes
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
