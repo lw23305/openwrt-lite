@@ -14,10 +14,6 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 sed -i "s/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.15/g" target/linux/x86/Makefile
 sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.15/g" target/linux/x86/Makefile
 
-# 移除要替换的包
-# rm -rf feeds/packages/net/mosdns
-# rm -rf feeds/luci/applications/luci-app-mosdns
-rm -rf feeds/luci/themes/luci-theme-argon
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -37,6 +33,7 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages packa
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 
 # Themes
+rm -rf feeds/luci/themes/luci-theme-argon
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
