@@ -1,9 +1,14 @@
 #!/bin/bash
 
 # Git稀疏克隆，只克隆指定目录到本地
-chmod +x $GITHUB_WORKSPACE/diy_script/function.sh
-source $GITHUB_WORKSPACE/diy_script/function.sh
-rm -rf package/custom; mkdir package/custom
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
 
 # 修改主机名字，修改你喜欢的就行（不能纯数字或者使用中文）
 # sed -i "/uci commit system/i\uci set system.@system[0].hostname='Jejz'" package/lean/default-settings/files/zzz-default-settings
