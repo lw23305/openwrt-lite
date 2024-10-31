@@ -7,7 +7,7 @@
 # Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
 #
 # This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
+# See /LICENSE for more information.sed -i 's/192.168.1.1/192.168.8.3/g' package/base-files/files/bin/config_generate
 #
 # Modify default IP
 sed -i "s/192.168.1.1/192.168.2.1/g" package/base-files/files/bin/config_generate
