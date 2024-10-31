@@ -29,11 +29,11 @@ sed -i 's/\/bin\/ash/\/bin\/bash/g' package/base-files/files/etc/passwd
 sed -i 's/invalid users = root/#&/g' feeds/packages/net/samba4/files/smb.conf.template
 
 # 交换LAN/WAN口
-sed -i 's/"eth1 eth2" "eth0"/"eth1 eth2" "eth0"/g' target/linux/x86/base-files/etc/board.d/02_network
-sed -i "s/'eth1 eth2' 'eth0'/'eth1 eth2' 'eth0'/g" target/linux/x86/base-files/etc/board.d/02_network
-sed -i "s/lan 'eth0'/lan 'eth0'/g" package/base-files/files/etc/board.d/99-default_network
-sed -i "s/wan 'eth1'/wan 'eth1'/g" package/base-files/files/etc/board.d/99-default_network
-sed -i "s/net\/eth1/net\/eth1/g" package/base-files/files/etc/board.d/99-default_network
+# sed -i 's/"eth1 eth2" "eth0"/"eth1 eth2" "eth0"/g' target/linux/x86/base-files/etc/board.d/02_network
+# sed -i "s/'eth1 eth2' 'eth0'/'eth1 eth2' 'eth0'/g" target/linux/x86/base-files/etc/board.d/02_network
+# sed -i "s/lan 'eth0'/lan 'eth0'/g" package/base-files/files/etc/board.d/99-default_network
+# sed -i "s/wan 'eth1'/wan 'eth1'/g" package/base-files/files/etc/board.d/99-default_network
+# sed -i "s/net\/eth1/net\/eth1/g" package/base-files/files/etc/board.d/99-default_network
 
 # ssr
 # git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
@@ -54,21 +54,24 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 # argon 主题
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-argon-config
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-con
 
 # 更改argon主题背景
 cp -f $GITHUB_WORKSPACE/personal/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # 修改主题多余版本信息
-sed -i 's|<a class="luci-link" href="https://github.com/openwrt/luci"|<a|g' package/luci-theme-argon/luasrc/view/themes/argon/footer.htm
-sed -i 's|<a href="https://github.com/jerrykuku/luci-theme-argon" target="_blank">|<a>|g' package/luci-theme-argon/luasrc/view/themes/argon/footer.htm
-sed -i 's/<a href=\"https:\/\/github.com\/coolsnowwolf\/luci\">/<a>/g' feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/footer.htm
+# sed -i 's|<a class="luci-link" href="https://github.com/openwrt/luci"|<a|g' package/luci-theme-argon/luasrc/view/themes/argon/footer.htm
+# sed -i 's|<a href="https://github.com/jerrykuku/luci-theme-argon" target="_blank">|<a>|g' package/luci-theme-argon/luasrc/view/themes/argon/footer.htm
+# sed -i 's/<a href=\"https:\/\/github.com\/coolsnowwolf\/luci\">/<a>/g' feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/footer.htm
 
 # 修改 argon 为默认主题
-sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
-sed -i 's/Bootstrap theme/Argon theme/g' feeds/luci/collections/*/Makefile
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/*/Makefile
+# sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
+# sed -i 's/Bootstrap theme/Argon theme/g' feeds/luci/collections/*/Makefile
+# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/*/Makefile
+
+# 取消主题默认设置
+find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 
 # 取消部分config配置
 sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
