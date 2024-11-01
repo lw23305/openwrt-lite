@@ -43,9 +43,11 @@ sed -i "s/net\/eth1/net\/eth1/g" package/base-files/files/etc/board.d/99-default
 # ssr
 # git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
 echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' >> "feeds.conf.default"
+echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main' >>feeds.conf.default
 
 # 最大连接数修改为65535
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
