@@ -1,7 +1,7 @@
 #!/bin/bash
 # 修改主机名字，修改你喜欢的就行（不能纯数字或者使用中文）
 sed -i "/uci commit system/i\uci set system.@system[0].hostname='Lihe'" package/lean/default-settings/files/zzz-default-settings
-sed -i "s/hostname='.*'/hostname='lihe'/g" ./package/base-files/files/bin/config_generate
+sed -i "s/hostname='.*'/hostname='Lihe'/g" ./package/base-files/files/bin/config_generate
 
 # 调整 x86 型号只显示 CPU 型号
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
