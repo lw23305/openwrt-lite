@@ -60,10 +60,7 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 
 # argon 主题
 rm -rf feeds/luci/themes/luci-theme-argon
-# rm -rf feeds/luci/applications/luci-app-argon-config
-# git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon
-# git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-con
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 
 # 更改argon主题背景
 cp -f $GITHUB_WORKSPACE/personal/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
