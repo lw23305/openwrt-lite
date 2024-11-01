@@ -22,13 +22,6 @@ sed -i 's/\/bin\/ash/\/bin\/bash/g' package/base-files/files/etc/passwd
 # samba解除root限制
 sed -i 's/invalid users = root/#&/g' feeds/packages/net/samba4/files/smb.conf.template
 
-# 交换LAN/WAN口
-sed -i 's/"eth1 eth2" "eth0"/"eth1 eth2" "eth0"/g' target/linux/x86/base-files/etc/board.d/02_network
-sed -i "s/'eth1 eth2' 'eth0'/'eth1 eth2' 'eth0'/g" target/linux/x86/base-files/etc/board.d/02_network
-sed -i "s/lan 'eth0'/lan 'eth0'/g" package/base-files/files/etc/board.d/99-default_network
-sed -i "s/wan 'eth1'/wan 'eth1'/g" package/base-files/files/etc/board.d/99-default_network
-sed -i "s/net\/eth1/net\/eth1/g" package/base-files/files/etc/board.d/99-default_network
-
 # ssr
 # git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
 echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
