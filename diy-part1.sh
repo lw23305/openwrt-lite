@@ -48,7 +48,12 @@ git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-a
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
-mba4菜单调整
+# 调整 ttyd 到 系统 菜单
+sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
+sed -i '3a \		"order": 10,' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
+sed -i 's/\"终端\"/\"TTYD 终端\"/g' feeds/luci/applications/luci-app-ttyd/po/zh_Hans/ttyd.po
+
+smba4菜单调整
 sed -i '/samba4/s/^/#/' package/lean/default-settings/files/zzz-default-settings
 
 ./scripts/feeds update -a
