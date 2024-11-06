@@ -58,6 +58,7 @@ sed -i 's/iperf3-ssl[[:space:]]*//g' target/linux/x86/Makefile
 # sed -i '/CONFIG_PACKAGE_kmod-usb-audio/d' ./.config
 # echo "# CONFIG_PACKAGE_kmod-usb-audio is not set" >> ./.config
 # echo "# CONFIG_PACKAGE_kmod-media-core is not set" >> ./.config
+
 # samba4菜单调整
 sed -i '/samba4/s/^/#/' package/lean/default-settings/files/zzz-default-settings
 
