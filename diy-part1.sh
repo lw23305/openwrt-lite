@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# 强制切换内核版本5.10/5.15/5.4/6.1
+sed -i "s/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.15/g" target/linux/x86/Makefile
+sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.15/g" target/linux/x86/Makefile
+
 # 修改主机名字，修改你喜欢的就行（不能纯数字或者使用中文）
 # sed -i "/uci commit system/i\uci set system.@system[0].hostname='Lihe'" package/lean/default-settings/files/zzz-default-settings
 # sed -i "s/hostname='.*'/hostname='Lihe'/g" ./package/base-files/files/bin/config_generate
@@ -10,15 +15,13 @@ sed -i "s/'C'/'Core '/g; s/'T '/'Thread '/g" package/lean/autocore/files/x86/aut
 # 修改本地时间格式
 sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
 
-# 更改默认 Shell 为 zsh
-# sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
-
 # TTYD 免登录
 sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
-# 强制切换内核版本5.10/5.15/5.4/6.1
-sed -i "s/KERNEL_PATCHVER:=*.*/KERNEL_PATCHVER:=5.15/g" target/linux/x86/Makefile
-sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.15/g" target/linux/x86/Makefile
+# 修复 Makefile 路径
+find $destination_dir/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i \
+    -e 's?\.\./\.\./luci.mk?$(TOPDIR)/feeds/luci/luci.mk?' \
+    -e 's?include \.\./\.\./\(lang\|devel\)?include $(TOPDIR)/feeds/packages/\1?' {}
 
 # 移除要替换的包+
 rm -rf feeds/luci/themes/luci-theme-argon
@@ -39,10 +42,6 @@ function git_sparse_clone() {
 git clone --depth=1 https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
-# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
-# git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
-# echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-# echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
 # Themes
 git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
