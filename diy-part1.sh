@@ -25,7 +25,7 @@ find $destination_dir/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i \
 
 # 移除要替换的包+
 rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-passwall
+# rm -rf feeds/luci/applications/luci-app-passwall
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
