@@ -41,7 +41,7 @@ function git_sparse_clone() {
 # ssr
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
-git_clone https://github.com/immortalwrt/homeproxy luci-app-homeproxy
+git clone --depth=1 https://github.com/immortalwrt/homeproxy luci-app-homeproxy
 git_clone https://github.com/sbwml/packages_lang_golang golang
 
 # Themes
