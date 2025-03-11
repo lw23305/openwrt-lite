@@ -61,7 +61,7 @@ find $destination_dir/luci-theme-*/ -type f -name '*luci-theme-*' -print -exec s
 sed -i '3a \		"order": 10,' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i 's/\"终端\"/\"TTYD 终端\"/g' feeds/luci/applications/luci-app-ttyd/po/zh_Hans/ttyd.po
 
-smba4菜单调整
+# 取消对 samba4 的菜单调整
 sed -i '/samba4/s/^/#/' package/lean/default-settings/files/zzz-default-settings
 
 ./scripts/feeds update -a
