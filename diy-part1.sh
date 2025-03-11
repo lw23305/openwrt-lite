@@ -61,11 +61,6 @@ find $destination_dir/luci-theme-*/ -type f -name '*luci-theme-*' -print -exec s
 sed -i '3a \		"order": 10,' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i 's/\"终端\"/\"TTYD 终端\"/g' feeds/luci/applications/luci-app-ttyd/po/zh_Hans/ttyd.po
 
-# 修复 Makefile 路径
-find $destination_dir/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i \
-    -e 's?\.\./\.\./luci.mk?$(TOPDIR)/feeds/luci/luci.mk?' \
-    -e 's?include \.\./\.\./\(lang\|devel\)?include $(TOPDIR)/feeds/packages/\1?' {}
-
 smba4菜单调整
 sed -i '/samba4/s/^/#/' package/lean/default-settings/files/zzz-default-settings
 
