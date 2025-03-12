@@ -26,7 +26,6 @@ find $destination_dir/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i \
 # 移除要替换的包+
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/packages/lang/golang
-# rm -rf feeds/luci/applications/luci-app-passwall
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -40,9 +39,9 @@ function git_sparse_clone() {
 }
 
 # ssr
-# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-# git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
-git clone --depth=1 https://github.com/immortalwrt/homeproxy luci-app-homeproxy
+clone_all https://github.com/xiaorouji/openwrt-passwall-packages
+clone_all https://github.com/xiaorouji/openwrt-passwall
+git clone https://github.com/immortalwrt/homeproxy luci-app-homeproxy
 git_clone https://github.com/sbwml/packages_lang_golang golang
 
 # Themes
@@ -57,10 +56,6 @@ cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-stat
 
 # 取消主题默认设置
 find $destination_dir/luci-theme-*/ -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
-
-# 更改 ttyd 顺序和名称
-sed -i '3a \		"order": 10,' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
-sed -i 's/\"终端\"/\"TTYD 终端\"/g' feeds/luci/applications/luci-app-ttyd/po/zh_Hans/ttyd.po
 
 # 取消对 samba4 的菜单调整
 sed -i '/samba4/s/^/#/' package/lean/default-settings/files/zzz-default-settings
