@@ -39,9 +39,11 @@ function git_sparse_clone() {
 }
 
 # ssr
-clone_all https://github.com/xiaorouji/openwrt-passwall-packages
-clone_all https://github.com/xiaorouji/openwrt-passwall
-git clone https://github.com/immortalwrt/homeproxy luci-app-homeproxy
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/passwall
+# clone_all https://github.com/xiaorouji/openwrt-passwall-packages
+# clone_all https://github.com/xiaorouji/openwrt-passwall
+# git clone https://github.com/immortalwrt/homeproxy luci-app-homeproxy
 git_clone https://github.com/sbwml/packages_lang_golang golang
 
 # Themes
